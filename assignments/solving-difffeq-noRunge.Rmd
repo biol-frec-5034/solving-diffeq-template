@@ -107,11 +107,11 @@ Solve the logistic growth equation (r = 0.1, K=10, and No= 1) using the **Euler 
 
 ```
 
-**Question 7**: 
+**Question 6**: 
 
 Question 6: Solve the logistic growth (r = 0.1, K=10, and No= 1) using the **deSolve method**. Run the model for 400 years with time steps of 1, 10, and 40 years (r = 0.1, K = 10, and No = 1).  Paste code and a plot of the three simulations below. (put all three simulations on the same plot)
 
-**Answer 7**:
+**Answer 6**:
 ```{r}
 #INSERT CODE TO SOLVE THE DIFFERNTIAL EQUATION WITH THE DIFFERENT TIME STEPS
 
@@ -122,11 +122,11 @@ Question 6: Solve the logistic growth (r = 0.1, K=10, and No= 1) using the **deS
 
 ```
 
-**Question 8:**  
+**Question 7:**  
 
 Which method (Euler or deSolve) is most accurate across all the time-steps?
 
-**Answer 8:**
+**Answer 7:**
 
 ##Translating conceptual diagrams to differential equations
 
@@ -137,20 +137,11 @@ Here is a conceptual diagram for a simple model describing the forest nitrogen c
 *DELTE THIS AFTER YOU GET THE FIGURE TO APPEAR*
 *Do get the figure above to show up download Eco_Dynamics_Lab_4_image.png from Canvas, move to a folder, and insert the file location in the after the "![]" above.*
 
-**Question 9:** 
+**Question 8:** 
 
 Write the system of differential equations that describes the figure above.  There will be an equation for each stock and use the flux names to write the balance equation for each stock.
 
-**Answer 9:**
-
-
-**Question 10:** 
-
-Answer the questions (under tasks) on page 66 in section 2.11.2 (Chapter 2 of S&H).  Additional information on the Monod kinetics can be found on page 37.  
-
-Note that uptake is the maximum rate (pmax) multiplied by the rate limitation governed by the monod kinetic described in the text.
-
-**Answer 10:**
+**Answer 8:**
 
 
 
