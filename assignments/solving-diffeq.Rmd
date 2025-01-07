@@ -1,7 +1,6 @@
 ---
 title: 'Ecosystem Dynamics: Lab 4'
 output:
-  word_document: default
   html_document: default
 ---
 
@@ -11,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE, root.dir = FALSE)
 
 ## Goals for lab
 
--	Apply skills used solve differential equations to a new a problem
+-	Apply skills used to solve differential equations to a new problem
 -	Practice the use of a standardized approach to coding differential equations in R
 -	Demonstrate the ability to use Euler, 4th order Runge-Kutta, and deSolve to solve a differential equation
 -	Demonstrate the ability to use the ‘curve’ function to visualize a function
@@ -22,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE, root.dir = FALSE)
 The logistic equation is a classic equation used to simulate the dynamics of a population (N; in individuals m-2) that has a carrying capacity.  Read about the formula on S&H Chapter 2 page 45.  The equation is:
 
 $$\frac{dN}{dt} = rN(1-\frac{N}{K})$$
-where r and K are parameters: r is the per-capita growth rate (`individuals individual^-1 yr^-1`) and K is the carrying capacity (`individuals m^-2`).  The key to understanding a differential equation is to remember that it predicts the rate of change of a stock rather than size of a stock.  Therefore, we do not directly know the size of a stock at a particular time from the equation, only how it is changing.  To get the size of the stock at a future time either we need to:
+where r and K are parameters: r is the per-capita growth rate (`individuals individual^-1 yr^-1`), and K is the carrying capacity (`individuals m^-2`).  The key to understanding a differential equation is to remember that it predicts the rate of change of a stock rather than the size of a stock.  Therefore, we do not directly know the size of a stock at a particular time from the equation; we only know how it changes.  To get the size of the stock at a future time, we need to:
 
 1) Numerically solve the differential equation using a computer like we did in Lab 3
 
@@ -45,11 +44,11 @@ Solve for the c given that N(0) = No.
 
 **Answer 1**:
 
-To plot the logistic equation use the curve function in R (see examples from this lab's materials).  I really like the curve function because it is an easy tool for visualizing equations that I see in papers.  To use the curve function, first write a function for the particular solution that plots population as a function of time.
+To plot the logistic equation, use the curve function in R (see examples from this lab's materials).  I really like the curve function because it is an easy tool for visualizing equations that I see in papers.  To use the curve function, first write a function for the particular solution that plots population as a function of time.
 
 ```{r}
 logistic_growth <- function(x, No, K, r){
-  #note that the function MUST have x as the first argument and x is the thing that R will be varying to make the curve.  I always convert the x to the variable that it reprsents in the code (in this case the variable t)
+  #note that the function MUST have x as the first argument and x is the thing that R will be vary to make the curve.  I always convert the x to the variable that it represents in the code (in this case, the variable t)
   t <- x
   
   #INSERT PARTICULAR SOLUTION HERE
@@ -59,7 +58,7 @@ logistic_growth <- function(x, No, K, r){
 
 **Question 2:** 
 
-Plot the particular solution for t 0 through 100 years with the following parameter values
+Plot the particular solution for t 0 through 100 years with the following parameter values.
 
 1)  r = 0.1, K = 10, and No = 1
 
@@ -67,7 +66,7 @@ Plot the particular solution for t 0 through 100 years with the following parame
 
 3)  r = 0.1, K = 10, and No = 20
 
-Use the curve function to generate the plot.  You can use the `add=TRUE` option in the curve function to plot the curve on an existing plot.  Paste plot below.
+Use the curve function to generate the plot.  You can use the `add=TRUE` option in the curve function to plot the curve on an existing plot.  Paste the plot code below.
 
 **Answer 2**:
 
@@ -78,7 +77,7 @@ Use the curve function to generate the plot.  You can use the `add=TRUE` option 
 
 **Question 3:** 
 
-Describe how varying `K` and `N0` influences the shape of the curve
+Describe how varying `K` and `N0` influences the shape of the curve.
 
 **Answer 3:**
 
@@ -98,7 +97,7 @@ Solve the logistic growth equation (r = 0.1, K=10, and No= 1) using the **Euler 
 
 **Answer 5**:
 ```{r}
-#INSERT CODE TO SOLVE THE DIFFERNTIAL EQUATION WITH THE DIFFERENT TIME STEPS
+#INSERT CODE TO SOLVE THE DIFFERENTIAL EQUATION WITH THE DIFFERENT TIME STEPS
 
 ```
 
@@ -114,7 +113,7 @@ Solve the logistic growth equation (r = 0.1, K = 10, and No = 1) using the **4th
 **Answer 6**:
 
 ```{r}
-#INSERT CODE TO SOLVE THE DIFFERNTIAL EQUATION WITH THE DIFFERENT TIME STEPS
+#INSERT CODE TO SOLVE THE DIFFERENTIAL EQUATION WITH THE DIFFERENT TIME STEPS
 
 ```
 
@@ -129,7 +128,7 @@ Question 6: Solve the logistic growth (r = 0.1, K=10, and No= 1) using the **deS
 
 **Answer 7**:
 ```{r}
-#INSERT CODE TO SOLVE THE DIFFERNTIAL EQUATION WITH THE DIFFERENT TIME STEPS
+#INSERT CODE TO SOLVE THE DIFFERENTIAL EQUATION WITH THE DIFFERENT TIME STEPS
 
 ```
 
@@ -150,12 +149,12 @@ Here is a conceptual diagram for a simple model describing the forest nitrogen c
 
 ![](/Users/quinn/Dropbox/Teaching/Ecosystem Dynamics/Fall 2017/lab assignments/Lab 4/Eco_Dynamics_Lab_4_image.png)
 
-*DELTE THIS AFTER YOU GET THE FIGURE TO APPEAR*
-*Do get the figure above to show up download Eco_Dynamics_Lab_4_image.png from Canvas, move to a folder, and insert the file location in the after the "![]" above.*
+*DELETE THIS AFTER YOU GET THE FIGURE TO APPEAR*
+*To get the figure above to show up, download Eco_Dynamics_Lab_4_image.png from Canvas, move to a folder, and insert the file location in after the "![]" above.*
 
 **Question 9:** 
 
-Write the system of differential equations that describes figure above.  There will be an equation for each stock and use the flux names to write the balance equation for each stock.
+Write the system of differential equations that describes the figure above. Each stock will have an equation, and the flux names will be used to write the balance equation for each stock.
 
 **Answer 9:**
 
@@ -164,7 +163,7 @@ Write the system of differential equations that describes figure above.  There w
 
 Answer the questions (under tasks) on page 66 in section 2.11.2 (Chapter 2 of S&H).  Additional information on the Monod kinetics can be found on page 37.  
 
-Note that uptake is the maximum rate (pmax) multiplied by the rate limitation governed by the monod kinetic described in the text.
+Note that uptake is the maximum rate (pmax) multiplied by the rate limitation governed by the Monod kinetic described in the text.
 
 **Answer 10:**
 
