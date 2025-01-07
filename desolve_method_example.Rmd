@@ -13,7 +13,7 @@ I recommend using the `deSolve` package because it does the hard work for you, a
 output <- ode(y = yini, times = times, func = simple_forest_model, parms = parms, method = "ode45"
 ```
 
-Note that the function `ode` returns an array that has the time step values, states, and other values (the fluxes) as columns. Therefore you need to examine the array first and reference the correct columns when visualizing and analyzing the output.  As an FYI, the names of the flux columns are strange because they attach extra names to the column name.
+Note that the function `ode` returns an array that has the time step values, states, and other values (the fluxes) as columns. Therefore, you need to examine the array first and reference the correct columns when visualizing and analyzing the output.  Just so you know, the names of the flux columns are weird because they attach extra names to the column name.
 
 ```{r}
 
