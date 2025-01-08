@@ -21,6 +21,7 @@ knitr::opts_chunk$set(echo = TRUE, root.dir = FALSE)
 The logistic equation is a classic equation used to simulate the dynamics of a population (N; in individuals m-2) that has a carrying capacity.  Read about the formula on S&H Chapter 2 page 45.  The equation is:
 
 $$\frac{dN}{dt} = rN(1-\frac{N}{K})$$
+
 where r and K are parameters: r is the per-capita growth rate (`individuals individual^-1 yr^-1`), and K is the carrying capacity (`individuals m^-2`).  The key to understanding a differential equation is to remember that it predicts the rate of change of a stock rather than the size of a stock.  Therefore, we do not directly know the size of a stock at a particular time from the equation; we only know how it changes.  To get the size of the stock at a future time we need to:
 
 1) Numerically solve the differential equation using a computer like we did in Lab 3
