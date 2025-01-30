@@ -50,14 +50,14 @@ simple_forest_model <- function(t, states, parms){
 }
 ```
 
-The important items to note:
+The essential items to note:
 
 1.  The function requires a vector called "times" (a vector or scaler of the time steps modeled), "states" (a vector of your state variables), and "parms" (a vector of your parameters)
 2.  It unpacks the state variables and parameters so that they have readable names that you specify. The state variable vector only represents the last time step, so you DO NOT need to use `t-1` to use the previous time-step value.  This means that `VEG <- states[1]` sets `VEG` equal to the value at the last time-step.
 3.  There is a section where the fluxes are calculated using the state variables and parameters.
-4.  There is a section where the balance equations are applied to calculate the derivatives (`dVeg`, `dSoil`).  Notice how `VegMortality` shows up in both equations because it is an output of one and an input to the other.
-5.  It returns two vectors.  The first vector, `c(dVeg, dSoil)`, is required, and **must** only be the derivatives, and **must** be in the same order as the variables in the `states` vector.  Later, this first vector will multiplied by "dt" to solve the equations.  The second list `c(VegGrowth, VegMortality, SoilDecomposition)` is optional and represents anything other than a state variable that you want to save from the time-step for later analysis.  In this case, the second vector includes the fluxes.
-6.  Order matters.  The order of the state variables must be the same order of the derivatives that you output.  
+4.  There is a section where the balance equations are applied to calculate the derivatives (`dVeg`, `dSoil`).  Notice how `VegMortality` shows up in both equations because it is an output of one and an input of the other.
+5.  It returns two vectors.  The first vector, `c(dVeg, dSoil)`, is required, and **must** only be the derivatives, and **must** be in the same order as the variables in the `states` vector.  Later, this first vector will multiplied by "dt" to solve the equations.  The second list `c(VegGrowth, VegMortality, SoilDecomposition)` is optional and represents anything other than a state variable you want to save from the time-step for later analysis.  In this case, the second vector includes the fluxes.
+6.  Order matters.  The order of the state variables must be the same order of the derivatives you output.  
 
 ##Solving the differential equation function using the Euler method
 
@@ -82,7 +82,7 @@ yini <- c(
   SOIL = 1000) #SOIL, g C m-2
 ```
 
-Again, the comments with the units are not required but highly encouraged.
+Again, comments on the units are not required but are highly encouraged.
 
 3. Define the time length and time step of the simulation
 
@@ -92,7 +92,7 @@ dt <- 1  #NUMBER OF YEARS PER TIME STEP
 times <- seq(1, simulation_time, by = dt)
 ```
 
-Notice that times is a vector of the time values at each time step  The function `seq` creates a sequence of numbers between `1` and `simulation_time` that are `dt` apart.
+Notice that times is a vector of the time values at each time step.  The function `seq` creates a sequence of numbers between `1` and `simulation_time` that are `dt` apart.
 
 4. Initialize the time vector of states
 
