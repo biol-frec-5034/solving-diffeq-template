@@ -1,7 +1,6 @@
 ---
 title: "Solving Differential Equations"
 output:
-  word_document: default
   html_document: default
 ---
 
@@ -139,7 +138,7 @@ legend("bottomright", c("Vegetation", "Soil"), lty = c("solid", "dashed"),
 solved_vegetation_model <- function(x, npp, mortalityRate){
   #Curve function needs x but your model uses t so set t equal to x
   t <- x
-  #This is your solution for c by
+  #This is your solution for c by solving for B = 0 at t = 0
   c <- (1 - (npp / mortalityRate))
   #This is your analytical solution
   B <- (npp / mortalityRate) + c * exp(-mortalityRate * t)

@@ -94,7 +94,7 @@ Write a function in R describing the logistic differential equation (not the sol
 
 **Question 5:** 
 
-Solve the logistic growth equation (r = 0.1, K=10, and No= 1) using the **Euler method**.  Run the model for 400 years with time steps of 1,10, and 40 years.  Paste code and a plot of the three simulations below (put all three simulations on the same plot)
+Solve the logistic growth equation (r = 0.1, K=10, and No= 1) using the **Euler method** from the `euler_method_example.Rmd` file.  Run the model for 400 years with time steps of 1,10, and 40 years.  Paste code and a plot of the three simulations below (put all three simulations on the same plot)
 
 **Answer 5**:
 ```{r}
@@ -132,10 +132,10 @@ Which method (Euler or deSolve) is most accurate across all the time-steps?
 
 Here is a conceptual diagram for a simple model describing the forest nitrogen cycle.  The boxes are stocks (Nv,NL, Nmin, Nsom), and the arrows are the fluxes. To keep the exercise general, the fluxes are just given as numbers (F1, F2, etc.)  
 
-![](/Users/quinn/Dropbox/Teaching/Ecosystem Dynamics/Fall 2017/lab assignments/Lab 4/Eco_Dynamics_Lab_4_image.png)
+![](../images/nitrogen_cycle_figure.png)
 
 *DELETE THIS AFTER YOU GET THE FIGURE TO APPEAR*
-*To get the figure above to show up, download Eco_Dynamics_Lab_4_image.png from Canvas, move to a folder, and insert the file location after the "![]" above.*
+*To get the figure above to show up, download nitrogen_cycle_figure.png from Canvas, move to a folder, and insert the file location after the "![]" above.*
 
 **Question 8:** 
 

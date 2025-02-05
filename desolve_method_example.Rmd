@@ -30,7 +30,7 @@ simple_forest_model <- function(t, states, parms){
   krate <- parms[3]
 
   #WRITE FLUX EQUATIONS HERE
-  VegGrowth <- npp 
+  VegGrowth <- npp
   VegMortality <- VEG * mortalityRate
   SoilDecomposition <- SOIL * krate
 
@@ -71,8 +71,7 @@ output <- ode(y = yini,
               times = times, 
               func = simple_forest_model, 
               parms = parms, 
-              method = "ode45",
-              weather_df = noaa_data)
+              method = "oed45")
 
 #-------------------------------------------------
 #Actual solution
