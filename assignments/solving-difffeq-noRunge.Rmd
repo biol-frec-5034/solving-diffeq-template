@@ -47,14 +47,16 @@ Solve for the c given that N(0) = No.
 
 To plot the logistic equation, use the curve function in R (see examples from this lab's materials).  I really like the curve function because it is an easy tool for visualizing equations that I see in papers.  To use the curve function, first write a function for the particular solution that plots population as a function of time.
 
-Remember that this function will return the stock (N), not the change (dN_dt)
+Remember that this function will return the stock (N), not the change (dN_dt).
+
+Other tips:  the `exp(-r*t)` function is how you represent e^-rt in R code
 
 ```{r}
 logistic_growth_analytic <- function(x, No, K, r){
   #note that the function MUST have x as the first argument and x is the thing that R will vary to make the curve.  I always convert the x to the variable that it represents in the code (in this case, the variable t)
   t <- x
   
-  #INSERT PARTICULAR SOLUTION HERE
+  #INSERT PARTICULAR ANALYTICAL SOLUTION HERE
   
   return(N)
   
