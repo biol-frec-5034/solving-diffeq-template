@@ -28,16 +28,16 @@ where r and K are parameters: r is the per-capita growth rate (`individuals indi
 
 or 
 
-2) Use calculus to integrate the equation by hand and solve for an equation were the lefthand side is biomass (a stock) rather than biomass change (dB/dt).  This equation is called the general solution.
+2) Use calculus to integrate the equation by hand and solve for an equation where the lefthand side is biomass (a stock) rather than biomass change (dB/dt).  This equation is called the general analytical solution.
 
-The general solution for the logistic growth equation is:
+The general analytical solution for the logistic growth equation is:
 
 $$N(t) = \frac{K}{1 + {ce}^{-rt}}$$
 where `N(t)` is the population size at a particular time (`t`) and `c` is the integration constant.  You know the parameters `r` and `K` but do not know `c` without solving for it.  For example if you know that 
 
 $$N(0) = {N_{o}}$$
 
-you can set t = 0 and N(t) = No and solve for c.  Once you solve for c the equation is called the particular solution.
+you can set t = 0 and N(t) = No and solve for c.  Once you solve for c the equation is called the particular analytical solution.
 
 **Question 1**: 
 
@@ -47,8 +47,10 @@ Solve for the c given that N(0) = No.
 
 To plot the logistic equation, use the curve function in R (see examples from this lab's materials).  I really like the curve function because it is an easy tool for visualizing equations that I see in papers.  To use the curve function, first write a function for the particular solution that plots population as a function of time.
 
+Remember that this function will return the stock (N), not the change (dN_dt)
+
 ```{r}
-logistic_growth <- function(x, No, K, r){
+logistic_growth_analytic <- function(x, No, K, r){
   #note that the function MUST have x as the first argument and x is the thing that R will vary to make the curve.  I always convert the x to the variable that it represents in the code (in this case, the variable t)
   t <- x
   
@@ -59,7 +61,7 @@ logistic_growth <- function(x, No, K, r){
 
 **Question 2:** 
 
-Plot the particular solution for t 0 through 100 years with the following parameter values.
+Plot the particular solution for t 0 through 400 years with the following parameter values.
 
 1)  r = 0.1, K = 10, and No = 1
 
@@ -72,8 +74,12 @@ Use the curve function to generate the plot.  You can use the `add=TRUE` option 
 **Answer 2**:
 
 ```{r}
-  curve(logitic_growth(x, No = INSERT, K = INSERT, r = INSERT))
-  curve(logitic_growth(x, No = INSERT, K = INSERT, r = INSERT), add=TRUE)
+curve(logitic_growth(x, No = INSERT, K = INSERT, r = INSERT), 
+        from = 0, to = 400, xlab = "time", ylab = "N (individual / m2)")
+curve(logitic_growth(x, No = INSERT, K = INSERT, r = INSERT), 
+        from = 0, to = 400, add=TRUE)
+curve(logitic_growth(x, No = INSERT, K = INSERT, r = INSERT), 
+        from = 0, to = 400, add=TRUE)
 ```
 
 **Question 3:** 
@@ -84,17 +90,21 @@ Describe how varying `K` and `N0` influences the shape of the curve.
 
 **Question 4:** 
 
-Write a function in R describing the logistic differential equation (not the solution).  Use the function form that we covered for the simple forest model earlier in the lab.  Paste function below.
+Write a function in R describing the logistic differential equation (not the analytic solution in Question 1 -3).  Use the function form that we covered for the simple forest model earlier in the lab as a template.  
+
+Remember that this function will return the change (dN_dt), not the stock (N)
 
 **Answer 4**:
 ```{r}
-#INSERT ANSWER 3 HERE
+logistic_growth_diff <- function(t, states, parms){
+  #INSERT CODE
+}
 
 ```
 
 **Question 5:** 
 
-Solve the logistic growth equation (r = 0.1, K=10, and No= 1) using the **Euler method** from the `euler_method_example.Rmd` file.  Run the model for 400 years with time steps of 1,10, and 40 years.  Paste code and a plot of the three simulations below (put all three simulations on the same plot)
+Solve the logistic growth differential equation from Question 4 (r = 0.1, K=10, and No= 1) using the **Euler method** from the `euler_method_example.Rmd` file.  Run the model for 400 years with time steps of 1,10, and 40 years.  Paste code and a plot of the three simulations below (put all three simulations on the same plot)
 
 **Answer 5**:
 ```{r}
@@ -109,7 +119,7 @@ Solve the logistic growth equation (r = 0.1, K=10, and No= 1) using the **Euler 
 
 **Question 6**: 
 
-Question 6: Solve the logistic growth (r = 0.1, K=10, and No= 1) using the **deSolve method**. Run the model for 400 years with time steps of 1, 10, and 40 years (r = 0.1, K = 10, and No = 1).  Paste code and a plot of the three simulations below. (put all three simulations on the same plot)
+Question 6: Solve the logistic growth differential equation from Question 4 (r = 0.1, K=10, and No= 1) using the **deSolve method**. Run the model for 400 years with time steps of 1, 10, and 40 years (r = 0.1, K = 10, and No = 1).  Paste code and a plot of the three simulations below. (put all three simulations on the same plot)
 
 **Answer 6**:
 ```{r}
