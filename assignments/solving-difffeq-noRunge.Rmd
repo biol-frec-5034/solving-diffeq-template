@@ -56,6 +56,8 @@ logistic_growth_analytic <- function(x, No, K, r){
   
   #INSERT PARTICULAR SOLUTION HERE
   
+  return(N)
+  
 }
 ```
 
@@ -98,6 +100,8 @@ Remember that this function will return the change (dN_dt), not the stock (N)
 ```{r}
 logistic_growth_diff <- function(t, states, parms){
   #INSERT CODE
+  
+  return(list(c(dN_dt)))
 }
 
 ```
